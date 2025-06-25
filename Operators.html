@@ -1,0 +1,123 @@
+fdhjdfhjdvsmevdgrjskmbn<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>4-Box Grid Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .box {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      height: 100%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-4">
+  <h3 class="text-center mb-4">4-Operator Calculator</h3>
+
+  <div class="row mt-4">
+    <!-- Box 1: Addition -->
+    <div class="col-md-6">
+      <div class="box">
+        <h5 class="text-success text-center">Addition (+)</h5>
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="add1">
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="add2">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-success w-50 me-1" onclick="calculate('add')">Calculate</button>
+          <button class="btn btn-outline-success w-50 ms-1" onclick="clearFields('add1', 'add2')">Clear</button>
+        </div>
+        <div class="alert alert-success mt-3 text-center" id="resultArea">Result:</div>
+      </div>
+    </div>
+
+    <!-- Box 2: Subtraction -->
+    <div class="col-md-6">
+      <div class="box">
+        <h5 class="text-danger text-center">Subtraction (−)</h5>
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="sub1">
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="sub2">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-danger w-50 me-1" onclick="calculate('sub')">Calculate</button>
+          <button class="btn btn-outline-danger w-50 ms-1" onclick="clearFields('sub1', 'sub2')">Clear</button>
+        </div>
+        <div class="alert alert-danger mt-3 text-center" id="resultArea">Result:</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <!-- Box 3: Multiplication -->
+    <div class="col-md-6">
+      <div class="box">
+        <h5 class="text-primary text-center">Multiplication (×)</h5>
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="mul1">
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="mul2">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-primary w-50 me-1" onclick="calculate('mul')">Calculate</button>
+          <button class="btn btn-outline-primary w-50 ms-1" onclick="clearFields('mul1', 'mul2')">Clear</button>
+        </div>
+        <div class="alert alert-primary mt-3 text-center" id="resultArea">Result:</div>
+      </div>
+    </div>
+
+    <!-- Box 4: Division -->
+    <div class="col-md-6">
+      <div class="box">
+        <h5 class="text-warning text-center">Division (÷)</h5>
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="div1">
+        <input type="number" class="form-control mb-2" placeholder="Enter Number" id="div2">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-warning w-50 me-1" onclick="calculate('div')">Calculate</button>
+          <button class="btn btn-outline-warning w-50 ms-1" onclick="clearFields('div1', 'div2')">Clear</button>
+        </div>
+        <div class="alert alert-warning mt-3 text-center" id="resultArea">Result:</div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+  function calculate(type) {
+    let num1, num2, result;
+    switch (type) {
+      case 'add':
+        num1 = parseFloat(document.getElementById('add1').value);
+        num2 = parseFloat(document.getElementById('add2').value);
+        result = num1 + num2;
+        break;
+      case 'sub':
+        num1 = parseFloat(document.getElementById('sub1').value);
+        num2 = parseFloat(document.getElementById('sub2').value);
+        result = num1 - num2;
+        break;
+      case 'mul':
+        num1 = parseFloat(document.getElementById('mul1').value);
+        num2 = parseFloat(document.getElementById('mul2').value);
+        result = num1 * num2;
+        break;
+      case 'div':
+        num1 = parseFloat(document.getElementById('div1').value);
+        num2 = parseFloat(document.getElementById('div2').value);
+        result = num2 !== 0 ? num1 / num2 : "Error (Div by 0)";
+        break;
+    }
+
+    document.getElementById('resultArea').textContent = "Result: " + result;
+  }
+
+  function clearFields(id1, id2) {
+    document.getElementById(id1).value = "";
+    document.getElementById(id2).value = "";
+    document.getElementById('resultArea').textContent = "Result will appear here.";
+  }
+</script>
+
+</body>
+</html>
