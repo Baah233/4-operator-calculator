@@ -11,6 +11,7 @@ A simple web-based calculator that supports basic arithmetic operations: additio
 - HTML
 - CSS
 - JavaScript
+- Bootstrap 5
 
 ## 📦 How to Use
 - Clone or download this repository
